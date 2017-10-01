@@ -6,7 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -25,8 +28,10 @@ public class RecycleSearchResultsAdapater extends RecyclerView.Adapter<RecycleSe
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View root = LayoutInflater.from(parent.getContext()).inflate(R.layout.resoult,parent,false);
-            return new ViewHolder(root);
+        View root = LayoutInflater.from(parent.getContext()).inflate(R.layout.resoult,parent,false);
+        ImageView imageView =(ImageView) root.findViewById(R.id.iv_image);
+        Picasso.with(parent.getContext()).load("http://i.imgur.com/DvpvklR.png").into(imageView);
+        return new ViewHolder(root);
     }
 
     @Override
